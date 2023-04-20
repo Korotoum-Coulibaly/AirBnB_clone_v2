@@ -27,11 +27,11 @@ class FileStorage:
     def all(self, cls=None):
         """returns the dictionary __objects"""
         if cls is not None:
-            new_dict = {}
+            filtered_dict = {}
             for key, value in self.__objects.items():
                 if cls == value.__class__ or cls == value.__class__.__name__:
-                    new_dict[key] = value
-            return new_dict
+                    filtered_dict[key] = value
+            return filtered_dict
         return self.__objects
 
     def new(self, obj):
@@ -53,8 +53,8 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as f:
                 jo = json.load(f)
-            for key in jo:
-                self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
+            for key, val in jo.items():
+                self.__objects[key] = classes[val["__class__"]](**val)
         except FileNotFoundError:
             pass
 
