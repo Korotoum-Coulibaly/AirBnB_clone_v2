@@ -23,7 +23,9 @@ class FileStorage:
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
-        self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
+        if obj is not None:
+            key = obj.__class__.__name__ + '.' + obj.id
+            self.__objects[key] = obj
 
     def save(self):
         """Saves storage dictionary to file"""
@@ -39,7 +41,7 @@ class FileStorage:
         if obj is not None:
             key = type(obj).__name + '.' + obj.id
             if key in self.__objects:
-                del sel.__objects[key]
+                del self.__objects[key]
 
     def reload(self):
         """Loads storage dictionary from file"""
