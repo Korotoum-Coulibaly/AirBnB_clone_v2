@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-#Write a Fabric script that distributes an archive to your web servers,using the function do_deploy.
+#Write a Fabric script that distributes an archive to your web servers, using the function do_deploy.
 from fabric.api import *
 from datetime import datetime
 from os.path import exists
 
-env.hosts = ['100.27.5.96', '100.25.180.2']
-#<IP web-01>', 'IP web-02'
+env.hosts = ['100.27.5.96', '100.25.180.2'] #<IP web-01>', 'IP web-02'
 
 def do_deploy(archive_path):
-    """ Fabric script that distributes an archive
-    to my web servers"""
-
+    """ Fabric script that distributes an archive to my web servers"""
     if exists(archive_path) is false:
 	return False 
 	#returns false if the file at archive_path doesnt exist
