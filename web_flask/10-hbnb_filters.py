@@ -18,10 +18,7 @@ def teardown_db(exception):
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb_filters():
-    """
-        Flask route at /hbnb_filters.
-        Fills the two popovers in hbnb homepage.
-    """
+    """route /hbnb_filters."""
     states = storage.all(State).values()
     amenities = storage.all(Amenity).values()
     values = {"states": states, "amenities": amenities}

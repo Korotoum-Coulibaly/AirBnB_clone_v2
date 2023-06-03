@@ -20,10 +20,7 @@ def teardown_db(exception):
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """
-        Flask route at /hbnb.
-        Fills the hbnb homepage.
-    """
+    """ route/hbnb."""
     states = storage.all(State).values()
     amenities = storage.all(Amenity).values()
     places = storage.all(Place).values()
