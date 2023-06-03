@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#Write a Fabric script that distributes an archive to your web servers,using the function do_deploy.
 from fabric.api import *
 from datetime import datetime
 from os.path import exists
