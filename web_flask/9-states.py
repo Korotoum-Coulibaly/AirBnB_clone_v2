@@ -14,13 +14,16 @@ def teardown_db(exception):
 
 
 @app.route('/states', strict_slashes=False)
-@app.route('/states/<state_id>', strict_slashes=False)
-def states(state_id=None):
+@app.route('/states/<id>', strict_slashes=False)
+def states(id=None):
     """ Function that display the list of cities of the states in order"""
-    states = storage.all("State")
-    if state_id is not None:
-	state_id = 'State.' + state_id
-    return render_template('9-states.html', states=states, state_id=state_id)
-
+    states = storage.all(State).values()
+    if id is not None:
+	   for state in states:
+            if state.id == id:
+                return render_template('9-states.html', states=state)
+        return render_template('9-states.html')
+    return render_template('9-states.html', states=states, full=True)
+    
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
