@@ -9,7 +9,8 @@ def hello_HBNB():
     """ Function that  display hello on computer screen"""
     return 'Hello HBNB!'
 
-@app.route('/hnbnb', strict_slashes=False)
+
+@app.route("/hbnb", strict_slashes=False)
 def HBNB():
     """ Function that display hbnb on computer screen"""
     return 'HBNB'
