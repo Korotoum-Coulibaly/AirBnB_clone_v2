@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ script that starts a Flask web application """
+from os import getenv
 from flask import Flask, render_template
 from models import storage
 from models.state import State
@@ -19,11 +20,12 @@ def states(id=None):
     """ Function that display the list of cities of the states in order"""
     states = storage.all(State).values()
     if id is not None:
-	   for state in states:
+        for state in states:
             if state.id == id:
                 return render_template('9-states.html', states=state)
         return render_template('9-states.html')
     return render_template('9-states.html', states=states, full=True)
-    
+
+
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
