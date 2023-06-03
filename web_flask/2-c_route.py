@@ -20,7 +20,7 @@ def HBNB():
 def C_by_value_text(text):
     """ Function that returns C with the text"""
     text = text.replace("_", " ")
-     return 'C {}'.format(text)
+    return 'C {}'.format(text)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
