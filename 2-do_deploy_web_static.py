@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Write a Fabric script that distributes an archive to your web servers function do_deploy."""
+"""distributes an archive to your web servers function do_deploy."""
 from fabric.api import *
 from datetime import datetime
 from os.path import exists
-env.hosts = ['100.27.5.96', '100.25.180.2'] 
+env.hosts = ['100.27.5.96', '100.25.180.2']
 
 
 def do_deploy(archive_path):
